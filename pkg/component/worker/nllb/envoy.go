@@ -303,6 +303,10 @@ func makePodManifest(params *envoyParams, podParams *envoyPodParams) corev1.Pod 
 					},
 				}},
 			},
+			Tolerations: []corev1.Toleration{{
+				Effect:   corev1.TaintEffectNoExecute,
+				Operator: corev1.TolerationOpExists,
+			}},
 		},
 	}
 }
